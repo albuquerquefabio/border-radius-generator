@@ -1,8 +1,9 @@
 {
-  "name": "border-radius",
-  "short_name": "border-radius",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "Border Radius Online",
+  "short_name": "bdrs-online",
+  "description": "A simple project to help young developers how to implement border radius in your css.",
+  "theme_color": "#242424",
+  "background_color": "#242424",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
