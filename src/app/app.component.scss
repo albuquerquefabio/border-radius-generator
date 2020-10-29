@@ -1,0 +1,258 @@
+$bg: #242424;
+$fg: lighten($bg, 20%);
+
+.color-light {
+  color: #fff;
+}
+.color-dark {
+  color: #333;
+}
+
+header {
+  & h1 {
+    font-size: 2.5em;
+    font-weight: 400;
+  }
+}
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+  & img {
+    margin: 0 16px;
+  }
+
+  & #twitter-logo {
+    height: 40px;
+    margin: 0 16px;
+  }
+
+  & #twitter-logo:hover {
+    opacity: 0.8;
+  }
+}
+
+.terminal {
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 6px;
+  padding-top: 45px;
+  margin-top: 8px;
+  overflow: hidden;
+  background-color: rgb(15, 15, 16);
+
+  &::before {
+    content: "\2022 \2022 \2022";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: rgb(58, 58, 58);
+    color: #c2c3c4;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 0;
+    padding: 14px 0;
+    text-indent: 4px;
+  }
+
+  & pre {
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    color: white;
+    padding: 0 1rem 1rem;
+    margin: 0;
+    font-size: 1em;
+    overflow-x: auto;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.card svg.material-icons path {
+  fill: #888;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.card {
+  border-radius: 4px;
+  min-height: 40px;
+  height: auto;
+  width: 400px;
+  margin: 0 8px 16px;
+  padding: 16px;
+  display: flex;
+
+  transition: all 0.2s ease-in-out;
+  line-height: 24px;
+  &.card-dark {
+    border: 1px solid #525252;
+    background-color: #292a2d;
+    color: white;
+    & fa-icon {
+      color: #fff !important;
+    }
+  }
+
+  &.card-light {
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    color: #333;
+    & fa-icon {
+      color: #333;
+    }
+  }
+
+  & input {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.2rem;
+    max-width: 7rem;
+    &.input-dark {
+      border: 1px solid #525252;
+      background-color: #292a2d;
+      color: white;
+    }
+    &.input-light {
+      border: 1px solid #eee;
+      background-color: #fafafa;
+      color: #333;
+    }
+  }
+}
+
+.card-container .card:not(:last-child) {
+  margin-right: 0;
+}
+
+.card.card-small {
+  height: 16px;
+  width: 168px;
+}
+
+// .card-container .card:not(.highlight-card) {
+//   cursor: pointer;
+// }
+
+// .card-container .card:not(.highlight-card):hover {
+//   transform: translateY(-3px);
+//   box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+// }
+
+.card-container .card:not(.highlight-card):hover .material-icons path {
+  fill: rgb(105, 103, 103);
+}
+
+.card.highlight-card {
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+  border: none;
+  width: auto;
+  min-width: 30%;
+  position: relative;
+}
+
+.card.card.highlight-card span {
+  margin-left: 60px;
+}
+
+.radio-group {
+  border: solid 1px $fg;
+  display: inline-block;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+
+  & label {
+    // color: lighten($bg, 40%);
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0.5rem 0.75rem;
+    &.checked {
+      // color: lighten($bg, 60%);
+      background: $fg;
+    }
+  }
+
+  input[type="radio"] {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+    background: #242424;
+  }
+
+  label + input[type="radio"] + label {
+    border-left: solid 1px $fg;
+  }
+}
+
+.retangle-example,
+.square-example {
+  transition: all 0.5s ease-out;
+  background: rgb(83, 212, 46);
+  background: linear-gradient(
+    45deg,
+    rgba(83, 212, 46, 1) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  cursor: pointer;
+}
+
+.retangle-example {
+  width: 20rem;
+  height: 10rem;
+}
+.square-example {
+  width: 10rem;
+  height: 10rem;
+}
+
+.copy-area {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 2rem;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.5s ease-out;
+  opacity: 0;
+  & h4 {
+    position: relative;
+    top: -1rem;
+  }
+  &:hover {
+    opacity: 0.98;
+    background: rgb(120, 131, 83);
+    background: linear-gradient(
+      45deg,
+      rgba(120, 131, 83, 1) 0%,
+      rgba(12, 68, 79, 1) 100%
+    );
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
+}
