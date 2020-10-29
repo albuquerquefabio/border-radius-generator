@@ -6,6 +6,7 @@ import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { FormsModule } from "@angular/forms";
+import { ClipboardModule } from "ngx-clipboard";
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { FormsModule } from "@angular/forms";
     }),
     FontAwesomeModule,
     FormsModule,
+    ClipboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

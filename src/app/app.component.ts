@@ -5,6 +5,7 @@ import {
   faUnlink,
   faCopy,
 } from "@fortawesome/free-solid-svg-icons";
+import { ClipboardService } from "ngx-clipboard";
 
 @Component({
   selector: "app-root",
@@ -26,10 +27,11 @@ export class AppComponent {
   unit = true;
 
   isSquare = false;
+  doAnimation = false;
 
   css = "";
 
-  constructor() {
+  constructor(private _clipboardService: ClipboardService) {
     this.cssProps();
   }
 
@@ -45,7 +47,7 @@ export class AppComponent {
       .split(/[^0-9]/g)
       .map((num) => num + unit)
       .join("")
-      .trimEnd();
+      .trim();
     this.css = `-webkit-border-radius: ${value};\n`;
     this.css += `-moz-border-radius: ${value};\n`;
     this.css += `border-radius: ${value};`;
@@ -58,5 +60,23 @@ export class AppComponent {
       this.topLeft = this.topRight = this.bottomLeft = this.bottomRight = event;
 
     this.cssProps();
+  }
+
+  copyText(css) {
+    let text = "";
+
+    if (this.isSquare) {
+      text = "width: 10rem;\n";
+    } else {
+      text = "width: 20rem;\n";
+    }
+    text += "height: 10rem;\n";
+    text += css;
+
+    this._clipboardService.copy(text);
+    this.doAnimation = true;
+    setTimeout(() => {
+      this.doAnimation = false;
+    }, 350);
   }
 }
